@@ -1,5 +1,5 @@
 from django.contrib import admin
-from rango.models import Category, Page, Question, Choice
+from rango.models import Category, Page, Question, Choice, UserProfile
 
 
 class ChoiceInline(admin.TabularInline):
@@ -31,3 +31,4 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Page, PageAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
+admin.site.register(UserProfile)
