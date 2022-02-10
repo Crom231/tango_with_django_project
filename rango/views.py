@@ -52,14 +52,19 @@ def index(request):
     context_dict['pages'] = page_list
 
     visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
 
     response = render(request, 'rango/index.html', context=context_dict)
     return response
 
 
 def about(request):
-    context_dict = {'boldmessage': 'This tutorial has been put together by Stuart McAdam'}
+
+    context_dict = {}
+    context_dict['boldmessage'] = 'This tutorial has been put together by Stuart McAdam'
+
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session.get('visits', 1)
+
     return render(request, 'rango/about.html', context=context_dict)
 
 
